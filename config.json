@@ -63,7 +63,8 @@
       "type": "text",
       "action": "add",
       "args": {
-        "inputDir": "./data"
+        "inputDir": "./data",
+        "onlyIPType": "ipv4"
       }
     },
     {
@@ -76,7 +77,8 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
-        "outputName": "geoip.dat"
+        "outputName": "geoip.dat",
+        "onlyIPType": "ipv4"
       }
     },
     {
@@ -84,7 +86,8 @@
       "action": "output",
       "args": {
         "outputName": "geoip-only-cn-private.dat",
-        "wantedList": ["cn", "private"]
+        "wantedList": ["cn", "private"],
+        "onlyIPType": "ipv4"
       }
     },
     {
@@ -92,6 +95,7 @@
       "action": "output",
       "args": {
         "outputName": "geoip-asn.dat",
+        "onlyIPType": "ipv4", 
         "wantedList": [
           "cloudflare",
           "cloudfront",
@@ -110,7 +114,8 @@
       "action": "output",
       "args": {
         "oneFilePerList": true,
-        "wantedList": ["cn", "private"]
+        "wantedList": ["cn", "private"],
+        "onlyIPType": "ipv4"
       }
     },
     {
@@ -118,6 +123,7 @@
       "action": "output",
       "args": {
         "outputName": "Country.mmdb",
+        "onlyIPType": "ipv4", 
         "overwriteList": [
           "cn",
           "private",
@@ -138,6 +144,7 @@
       "action": "output",
       "args": {
         "outputName": "Country-only-cn-private.mmdb",
+        "onlyIPType": "ipv4", 
         "wantedList": ["cn", "private"]
       }
     },
@@ -146,6 +153,7 @@
       "action": "output",
       "args": {
         "outputName": "Country-asn.mmdb",
+        "onlyIPType": "ipv4", 
         "wantedList": [
           "cloudflare",
           "cloudfront",
