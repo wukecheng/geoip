@@ -5,7 +5,8 @@
       "action": "add",
       "args": {
         "country": "./geolite2/GeoLite2-Country-Locations-en.csv",
-        "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv"
+        "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv",
+        "ipv6": "./geolite2/GeoLite2-Country-Blocks-IPv6.csv"
       }
     },
     {
@@ -47,8 +48,25 @@
       "type": "text",
       "action": "add",
       "args": {
+        "name": "cn",
+        "uri": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+        "onlyIPType": "ipv6"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
         "name": "cloudflare",
         "uri": "https://www.cloudflare.com/ips-v4"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v6"
       }
     },
     {
@@ -63,8 +81,7 @@
       "type": "text",
       "action": "add",
       "args": {
-        "inputDir": "./data",
-        "onlyIPType": "ipv4"
+        "inputDir": "./data"
       }
     },
     {
@@ -77,8 +94,7 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
-        "outputName": "geoip.dat",
-        "onlyIPType": "ipv4"
+        "outputName": "geoip.dat"
       }
     },
     {
@@ -86,8 +102,7 @@
       "action": "output",
       "args": {
         "outputName": "geoip-only-cn-private.dat",
-        "wantedList": ["cn", "private"],
-        "onlyIPType": "ipv4"
+        "wantedList": ["cn", "private"]
       }
     },
     {
@@ -95,7 +110,6 @@
       "action": "output",
       "args": {
         "outputName": "geoip-asn.dat",
-        "onlyIPType": "ipv4", 
         "wantedList": [
           "cloudflare",
           "cloudfront",
@@ -114,8 +128,7 @@
       "action": "output",
       "args": {
         "oneFilePerList": true,
-        "wantedList": ["cn", "private"],
-        "onlyIPType": "ipv4"
+        "wantedList": ["cn", "private"]
       }
     },
     {
@@ -123,7 +136,6 @@
       "action": "output",
       "args": {
         "outputName": "Country.mmdb",
-        "onlyIPType": "ipv4", 
         "overwriteList": [
           "cn",
           "private",
@@ -144,7 +156,6 @@
       "action": "output",
       "args": {
         "outputName": "Country-only-cn-private.mmdb",
-        "onlyIPType": "ipv4", 
         "wantedList": ["cn", "private"]
       }
     },
@@ -153,7 +164,6 @@
       "action": "output",
       "args": {
         "outputName": "Country-asn.mmdb",
-        "onlyIPType": "ipv4", 
         "wantedList": [
           "cloudflare",
           "cloudfront",
