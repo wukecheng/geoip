@@ -37,14 +37,14 @@
       "action": "add",
       "args": {
         "onlyIPType": "ipv4", 
-        "uri": "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
+        "uri": "https://raw.githubusercontent.com/wukecheng/geoip/release/Country.mmdb"
       }
     },
     {
       "type": "maxmindMMDB",
       "action": "remove",
       "args": {
-        "uri": "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb",
+        "uri": "https://raw.githubusercontent.com/wukecheng/geoip/release/Country.mmdb",
         "wantedList": ["jp"],
         "onlyIPType": "ipv6"
       }
