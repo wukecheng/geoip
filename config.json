@@ -5,7 +5,8 @@
       "action": "add",
       "args": {
         "country": "./geolite2/GeoLite2-Country-Locations-en.csv",
-        "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv"
+        "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv",
+        "ipv6": "./geolite2/GeoLite2-Country-Blocks-IPv6.csv"
       }
     },
     {
@@ -47,8 +48,25 @@
       "type": "text",
       "action": "add",
       "args": {
+        "name": "cn",
+        "uri": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+        "onlyIPType": "ipv6"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
         "name": "cloudflare",
         "uri": "https://www.cloudflare.com/ips-v4"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v6"
       }
     },
     {
@@ -83,8 +101,80 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
+        "outputName": "geoip-only-cn-private.dat",
+        "wantedList": ["cn", "private"]
+      }
+    },
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
+        "outputName": "geoip-asn.dat",
+        "wantedList": [
+          "cloudflare",
+          "cloudfront",
+          "facebook",
+          "fastly",
+          "google",
+          "netflix",
+          "telegram",
+          "twitter", 
+          "cloud-cn"
+        ]
+      }
+    },
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
         "oneFilePerList": true,
         "wantedList": ["cn", "private"]
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputName": "Country.mmdb",
+        "overwriteList": [
+          "cn",
+          "private",
+          "cloudflare",
+          "cloudfront",
+          "facebook",
+          "fastly",
+          "google",
+          "netflix",
+          "telegram",
+          "twitter", 
+          "cloud-cn"
+        ]
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputName": "Country-only-cn-private.mmdb",
+        "wantedList": ["cn", "private"]
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputName": "Country-asn.mmdb",
+        "wantedList": [
+          "cloudflare",
+          "cloudfront",
+          "facebook",
+          "fastly",
+          "google",
+          "netflix",
+          "telegram",
+          "twitter", 
+          "cloud-cn"
+        ]
       }
     },
     {
