@@ -133,69 +133,6 @@
         "wantedList": ["cn", "private", "test"],
         "onlyIPType": "ipv4"
       }
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output"
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputName": "Country.mmdb",
-        "overwriteList": ["cn", "private"]
-      }
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputName": "country-only-cn-private.mmdb",
-        "wantedList": ["cn", "private"]
-      }
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputDir": "./publish",
-        "outputName": "country-only-cn-private.mmdb",
-        "wantedList": ["cn", "private"],
-        "onlyIPType": "ipv4"
-      }
-    },
-    {
-      "type": "text",
-      "action": "output",
-      "args": {
-        "outputDir": "./publish",
-        "wantedList": ["cn", "us", "private"],
-        "onlyIPType": "ipv6"
-      }
-    },
-    {
-      "type": "clashRuleSetClassical",
-      "action": "output",
-      "args": {
-        "wantedList": ["cn", "private", "test"],
-        "onlyIPType": "ipv4"
-      }
-    },
-    {
-      "type": "clashRuleSet",
-      "action": "output",
-      "args": {
-        "wantedList": ["cn", "private", "test"],
-        "onlyIPType": "ipv6"
-      }
-    },
-    {
-      "type": "surgeRuleSet",
-      "action": "output",
-      "args": {
-        "wantedList": ["cn", "private", "test"],
-        "onlyIPType": "ipv4"
-      }
     }
   ]
 }
