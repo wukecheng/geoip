@@ -42,7 +42,7 @@ jobs:
         run: |
           curl -sSL https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[].ipv4Prefix | select(. != null)' >> data/google
           curl -sSL https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[].ipv4Prefix | select(. != null)' >> data/google
-          curl -sSL https://api.fastly.com/public-ip-list | jq --raw-output '.addresses[],.ipv6_addresses[]' >> data/fastly
+          curl -sSL https://api.fastly.com/public-ip-list | jq --raw-output '.addresses[]' >> data/fastly
           curl -sSL https://ip-ranges.amazonaws.com/ip-ranges.json | jq --raw-output '.prefixes[] | select(.service == "CLOUDFRONT") | .ip_prefix' | grep "/" >> data/cloudfront
 
       - name: Get GeoLite2
@@ -65,12 +65,6 @@ jobs:
             sha256sum ${name} > ./${name}.sha256sum
           done
 
-      - name: Generate sha256 checksum for mmdb files
-        run: |
-          cd ./output/maxmind || exit 1
-          for name in $(ls *.mmdb); do
-            sha256sum ${name} > ./${name}.sha256sum
-          done
 
       - name: Download GeoLite2
         env:
